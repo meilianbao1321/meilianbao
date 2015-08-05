@@ -1,0 +1,59 @@
+//
+//  PrefixHeader.pch
+//  MeiPinJie
+//
+//  Created by mac on 15/6/25.
+//  Copyright (c) 2015年 Alex. All rights reserved.
+//
+
+#ifndef MeiPinJie_PrefixHeader_pch
+#define MeiPinJie_PrefixHeader_pch
+
+#define IOS6 [[[UIDevice currentDevice] systemVersion] floatValue] <= 7
+
+
+#define iPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
+
+#define iPhone6 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(750, 1334), [[UIScreen mainScreen] currentMode].size)  : NO)
+
+#define iPhone6Plus ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242, 2208), [[UIScreen mainScreen] currentMode].size) : NO)
+
+#define  APP_KEY @"55938c2d67e58eae36003ed7"
+#define  BTN_TAG 10000
+#define  USER_URL @"http://user.m.meilianbao.net/Account"
+#define  MAIN_URL @"http://m.meilianbao.net/"
+#define  MENU_URL @"http://m.meilianbao.net/other/nav"
+#define  MALL_URL @"http://mall.m.meilianbao.net/Product"
+#define  CALL_URL @"http://m.meilianbao.net/Home/Contact"
+#define  ABOUT_URL @"http://m.meilianbao.net/home/about"
+
+#define  lesson_URL @"http://m.meilianbao.net/Video/DailyLessonDetail/"
+
+#define  UP_AVATOR @"/Raw/UploadAvator"
+#define  VIEW_HEIGHT [UIScreen mainScreen].bounds.size.height
+#define  VIEW_WIDH [UIScreen mainScreen].bounds.size.width
+
+
+#define JT_APP_KEY          @"b6b29955b0fc0dd2a9d2fe01"
+
+#define WX_APP_KEY          @"wx7ee5b93b8efe6ddb"
+#define WX_APP_SECRET       @""
+#define SINA_APP_KEY        @"wx7ee5b93b8efe6ddb"
+#define SINA_APP_SECRET     @""
+#define QQ_APP_KEY          @"wx7ee5b93b8efe6ddb"
+#define QQ_APP_SECRET       @""
+#define TX_APP_KEY          @"wx7ee5b93b8efe6ddb"
+#define TX_APP_SECRET       @""
+
+#define AliPartner @"2088911762667454"
+#define AliSeller  @"3272107868@qq.com"
+#define AliPrivateKey @"MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBALiFDNrvvd4k+I9wxQqpxG+V0byqvd7zBhV9V9ns0DnaBLKvPGhWq3tfR7b3RrCme1bFUqEhpooab1kJammekqEdzRJ6PIzPwFOdncXyhixMJW6/fmq1BSxUda6jS1BLPClTtmtsqUhHWwiGhWGe4NWTl12K9zM2XF/c94j/tfWtAgMBAAECgYEAlL70+P0wwwZstT1EKm9moklVFVFS1Ip2ihZMHqpPxYMiLGUlPjs367GIX0+BVeAvJ2jUTn6RAV2EC3OSq+gf7JFtlwFJZUwX1KvX7pRC+FcZaeYC7lCZwW+eGGKpnwY0JRf1bsRybqACKFfiignG6ddsKStohfqUkSqkc65+GGUCQQDadQzuRayJUDVtl9tXqy+VBGeNCuddr1IyWZxluuEGCrwLVp17OmYee7IdAN6LNtGItG9F3tubjpVycvy/TqdPAkEA2DruYprZhdZzBFY05baKSkIkqovgFsbMhl5DPuCY+36y6MHs1ug6RAr/+bb5khAYjDJ6juBUX0XFG+2dQpIUQwJBAMCKXeU8H3++4/g92aMBTCTJBwN20sjtl0KtXH0FIwOSPn63zoEnzY2cdDW/6GVG4ZLdhR1N+Ly4BNwkoMN0bV0CQG7nmwl8PwGEgq3AwZTo0XlQ/5lx8Nf90z0/7+G6NP0ZeQ4lGSMJLYlk0vHzxYIDO3P9GBtcOCo9kOHIOBbC8h0CQCuAZvbZiJYQgTjGIdFkZMoJK52zqZz5u3hJeksK/DC8HSuSYOkAwdK3JfI7V2zzdU6aCWs5fvkRdH7iS4cE3g0="
+
+
+#import "XMPPConfig.h"
+#import "GlobalMacro.h"
+#import "EGORefreshTableHeaderView.h"
+#import "AppDelegate.h"
+
+#endif
+ 
