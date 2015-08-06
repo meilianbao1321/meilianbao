@@ -38,11 +38,6 @@
 
 }
 
-//- (void)viewWillAppear:(BOOL)animated{
-//    NSString *str = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
-//    [_webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"$.Raw.CallBack(5,'%@')",str]];
-//    NSLog(@"str == %@",str);
-//}
 
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
     NSString * urlStr =[NSString stringWithFormat:@"%@",request.URL];
@@ -54,6 +49,7 @@
         
         if ([viewUrlStr rangeOfString:@"/about"].length != 0 && [urlStr isEqualToString:@"itms-services://?action=download-manifest&url=https%3A%2F%2Fwww.pgyer.com%2Fapiv1%2Fapp%2Fplist%3FaId%3Da576560c3f94b3115e7653671a26997e%26_api_key%3D90146f0a35b1481efb46e34b0d5e8c1c"]) {
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-services://?action=download-manifest&url=https%3A%2F%2Fwww.pgyer.com%2Fapiv1%2Fapp%2Fplist%3FaId%3Da576560c3f94b3115e7653671a26997e%26_api_key%3D90146f0a35b1481efb46e34b0d5e8c1c"]];
+            [SVProgressHUD showWithStatus:@"正在升级中，请稍等..."];
             return NO;
             
         }
@@ -108,24 +104,6 @@
             return NO;
         }
 
-
-        if ([urlStr rangeOfString:@"/Raw/CheckVer"].length != 0) {
-            NSArray * tmpArr = [NSArray arrayWithArray:[[[urlStr componentsSeparatedByString:@"?"]objectAtIndex:1] componentsSeparatedByString:@"&"]];
-            NSString * ver = [tmpArr[0] substringFromIndex:4];
-            NSString * url = [tmpArr[1] substringFromIndex:4];
-            NSLog(@"%@",url);
-            NSLog(@"%@",ver);
-            NSDictionary * infoDict =[[NSBundle mainBundle]infoDictionary];
-            NSString * verCurrent = [infoDict objectForKey:@"CFBundleVersion"];
-            NSLog(@"------%@",verCurrent);
-            if ([verCurrent compare:ver] <0) {
-                [[UIApplication sharedApplication]openURL:[NSURL URLWithString:url]];
-            }else{
-               UIAlertView * av = [[UIAlertView alloc]initWithTitle:@"提示" message:@"当前版本已经是最新版本，不需要更新" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
-                [av show];
-            }
-            return NO;
-        }
         SecondViewController * svc =[[SecondViewController alloc]init];
         svc.currentUrl =request.URL;
         svc.isHome = NO;

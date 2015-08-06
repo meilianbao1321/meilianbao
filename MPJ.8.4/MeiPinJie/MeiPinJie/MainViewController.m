@@ -938,15 +938,19 @@ static BOOL isHidden =NO;
             [self useLocation];
         }
 
-
-//    if ([[self.currentUrl absoluteString] rangeOfString:@"/Video/Index"].length !=0) {
-//        app.isBack =NO;
-//    }else if([[self.currentUrl absoluteString] rangeOfString:@"/Video/DailyLesson"].length !=0){
-//        app.isBack =YES;
-//    }
-
+    if ([[self.currentUrl absoluteString] isEqualToString:@"http://m.meilianbao.net/home/about"]) {
+        [self showVer];
+    }
 }
 
+
+-(void)showVer{
+    NSDictionary * infoDict =[[NSBundle mainBundle]infoDictionary];
+    NSString * verCurrent = [infoDict objectForKey:@"CFBundleVersion"];
+    NSLog(@"------%@",verCurrent);
+    NSString * verStr =[NSString stringWithFormat:@"$.Raw.CallBack(5,'%@')",verCurrent];
+    [_webView stringByEvaluatingJavaScriptFromString:verStr];
+}
 
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
     //获得所有html界面所有源代码
@@ -957,7 +961,6 @@ static BOOL isHidden =NO;
     //@"document.body.innerHTML"
     return YES;
 }
-
 
 
 #pragma mark --EGORrfreshDelegate
