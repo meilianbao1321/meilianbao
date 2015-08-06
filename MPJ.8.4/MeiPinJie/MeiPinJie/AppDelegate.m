@@ -51,12 +51,12 @@
     mvc.isMainHome =YES;
     SecondViewController *sec = [[SecondViewController alloc] init];
     sec.isHome = YES;
-    sec.currentUrl =[NSURL URLWithString:MALL_URL];
+    sec.currentUrl =[NSURL URLWithString:BBS_URL];
 
 
     ThirdViewController *thi = [[ThirdViewController alloc] init];
     thi.isHome = YES;
-    thi.currentUrl = [NSURL URLWithString:CALL_URL];
+    thi.currentUrl = [NSURL URLWithString:BRAND_URL];
     FourViewController *fou = [[FourViewController alloc] init];
     fou.isHome = YES;
     fou.currentUrl = [NSURL URLWithString:USER_URL];
@@ -308,12 +308,12 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"wetchatPayResult" object:self userInfo:@{@"result":self.currentResp}];
 }
 
-- (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window{
-    if ([NSStringFromClass([[[window subviews]lastObject]class])isEqualToString:@"UITransitionView"]) {
-        return UIInterfaceOrientationMaskAll;
-    }
-    return UIInterfaceOrientationMaskPortrait;
-}
+//- (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window{
+//    if ([NSStringFromClass([[[window subviews]lastObject]class])isEqualToString:@"UITransitionView"]) {
+//        return UIInterfaceOrientationMaskAll;
+//    }
+//    return UIInterfaceOrientationMaskPortrait;
+//}
 
 
 

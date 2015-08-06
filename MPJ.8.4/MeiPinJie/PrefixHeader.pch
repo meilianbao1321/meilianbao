@@ -26,7 +26,8 @@
 #define  MALL_URL @"http://mall.m.meilianbao.net/Product"
 #define  CALL_URL @"http://m.meilianbao.net/Home/Contact"
 #define  ABOUT_URL @"http://m.meilianbao.net/home/about"
-
+#define  BBS_URL @"http://m.meilianbao.net/Home/Bbs"
+#define  BRAND_URL  @"http://m.meilianbao.net/Home/Brand"
 #define  lesson_URL @"http://m.meilianbao.net/Video/DailyLessonDetail/"
 
 #define  UP_AVATOR @"/Raw/UploadAvator"

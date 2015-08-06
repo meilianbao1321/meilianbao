@@ -140,7 +140,7 @@
             app.tabbar.selectedIndex = 3;
             [self.navigationController popToRootViewControllerAnimated:YES];
 
-        }else if ([str isEqualToString:MALL_URL]){
+        }else if ([str isEqualToString:BBS_URL]){
             [self showLeftMeun];
             AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
             app.tabbar.g_selectedTag = 2;
@@ -149,7 +149,7 @@
             [self.navigationController popToRootViewControllerAnimated:YES];
 
 
-        }else if ([str isEqualToString:CALL_URL]){
+        }else if ([str isEqualToString:BRAND_URL]){
             [self showLeftMeun];
             AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
             app.tabbar.g_selectedTag = 3;

@@ -138,10 +138,19 @@
 
         
        
-        
+        //添加银行卡返回
         if ([viewUrlStr rangeOfString:@"Account/AddBank"].length !=0 &&[urlStr isEqualToString:@"http://user.m.meilianbao.net/Account/Set"]) {
             [self.navigationController popViewControllerAnimated:YES];
             return NO;
+        }
+
+        //退出登录
+        if ([viewUrlStr rangeOfString:@"/Account/Set"].length !=0 &&[urlStr isEqualToString:@"http://user.m.meilianbao.net/Login"]) {
+            if([self.delegate respondsToSelector:@selector(popwithFourUrl:)]){
+                [self.delegate popwithFourUrl:request.URL];
+                [self.navigationController popViewControllerAnimated:YES];
+                return NO;
+            }
         }
 
 

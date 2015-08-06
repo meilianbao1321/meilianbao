@@ -108,10 +108,6 @@
             return NO;
         }
 
-        if ([urlStr rangeOfString:@"/Home/Share"].length !=0) {
-            [self share];
-            return NO;
-        }
 
         if ([urlStr rangeOfString:@"/Raw/CheckVer"].length != 0) {
             NSArray * tmpArr = [NSArray arrayWithArray:[[[urlStr componentsSeparatedByString:@"?"]objectAtIndex:1] componentsSeparatedByString:@"&"]];
@@ -147,6 +143,21 @@
 
             return NO;
         }
+
+        if ([urlStr rangeOfString:@"/Home/Share"].length !=0) {
+
+            CATransition *animation = [CATransition animation];
+            animation.duration = 0.5f;
+            [animation setType:kCATransitionMoveIn];
+            [animation setSubtype:kCATransitionFromRight];
+            [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionDefault]];
+            svc.isPresent =YES;
+            [self presentViewController:svc animated:NO completion:nil];
+            [self.view.window.layer addAnimation:animation forKey:nil];
+
+            return NO;
+        }
+
 
 
        [self.navigationController pushViewController:svc animated:YES];

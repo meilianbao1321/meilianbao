@@ -141,7 +141,7 @@ enum barsize{
     //second
     imageView2 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tabbar1"] highlightedImage:nil];
     imageView2.frame = CGRectMake(img_x, img_y, img_width, tabitem_hight);
-    NSString *str1 = @"产品中心";
+    NSString *str1 = @"美业论坛";
     
 //    UILabel *label1 = [[UILabel alloc] initWithFrame:CGRectMake(0, tabitem_hight, tabitem_width, 20)];
 //    label1.text = str1;
@@ -173,7 +173,7 @@ enum barsize{
     imageView3 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tabbar2"] highlightedImage:nil];
     imageView3.frame = CGRectMake(img_x, img_y, img_width, tabitem_hight);
     
-    NSString *str2 = @"联系我们";
+    NSString *str2 = @"名师名店";
    
     
     thirdBtn=[UIButton buttonWithType:UIButtonTypeCustom];

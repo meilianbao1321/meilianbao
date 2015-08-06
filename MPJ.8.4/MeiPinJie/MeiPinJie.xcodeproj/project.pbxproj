@@ -255,8 +255,6 @@
 		04D0F9AE1B3CFF22008C2DB3 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D0F9AD1B3CFF22008C2DB3 /* libsqlite3.dylib */; };
 		04D0F9B01B3CFF2E008C2DB3 /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D0F9AF1B3CFF2E008C2DB3 /* libz.1.dylib */; };
 		04D0F9B21B3CFF3A008C2DB3 /* libresolv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D0F9B11B3CFF3A008C2DB3 /* libresolv.dylib */; };
-		04D1AB151B4B7C23005A5A60 /* tabbar2.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D1AB0D1B4B7C23005A5A60 /* tabbar2.png */; };
-		04D1AB161B4B7C23005A5A60 /* tabbarS2.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D1AB0E1B4B7C23005A5A60 /* tabbarS2.png */; };
 		04D1AB171B4B7C23005A5A60 /* tabbar0.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D1AB0F1B4B7C23005A5A60 /* tabbar0.png */; };
 		04D1AB181B4B7C23005A5A60 /* tabbarS0.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D1AB101B4B7C23005A5A60 /* tabbarS0.png */; };
 		04D1AB191B4B7C23005A5A60 /* tabbar1.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D1AB111B4B7C23005A5A60 /* tabbar1.png */; };
@@ -331,6 +329,8 @@
 		04FA75201B687D0300F0440E /* 29.png in Resources */ = {isa = PBXBuildFile; fileRef = 04FA75011B687D0300F0440E /* 29.png */; };
 		04FA75211B687D0300F0440E /* 30.png in Resources */ = {isa = PBXBuildFile; fileRef = 04FA75021B687D0300F0440E /* 30.png */; };
 		04FA75221B687D0300F0440E /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 04FA75031B687D0300F0440E /* background.png */; };
+		04FAB5DA1B72FE800077197C /* tabbar2.png in Resources */ = {isa = PBXBuildFile; fileRef = 04FAB5D81B72FE800077197C /* tabbar2.png */; };
+		04FAB5DB1B72FE800077197C /* tabbarS2.png in Resources */ = {isa = PBXBuildFile; fileRef = 04FAB5D91B72FE800077197C /* tabbarS2.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -899,8 +899,6 @@
 		04D0F9AD1B3CFF22008C2DB3 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		04D0F9AF1B3CFF2E008C2DB3 /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = usr/lib/libz.1.dylib; sourceTree = SDKROOT; };
 		04D0F9B11B3CFF3A008C2DB3 /* libresolv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libresolv.dylib; path = usr/lib/libresolv.dylib; sourceTree = SDKROOT; };
-		04D1AB0D1B4B7C23005A5A60 /* tabbar2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar2.png; sourceTree = "<group>"; };
-		04D1AB0E1B4B7C23005A5A60 /* tabbarS2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbarS2.png; sourceTree = "<group>"; };
 		04D1AB0F1B4B7C23005A5A60 /* tabbar0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar0.png; sourceTree = "<group>"; };
 		04D1AB101B4B7C23005A5A60 /* tabbarS0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbarS0.png; sourceTree = "<group>"; };
 		04D1AB111B4B7C23005A5A60 /* tabbar1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar1.png; sourceTree = "<group>"; };
@@ -994,6 +992,8 @@
 		04FA75011B687D0300F0440E /* 29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 29.png; sourceTree = "<group>"; };
 		04FA75021B687D0300F0440E /* 30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 30.png; sourceTree = "<group>"; };
 		04FA75031B687D0300F0440E /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		04FAB5D81B72FE800077197C /* tabbar2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar2.png; sourceTree = "<group>"; };
+		04FAB5D91B72FE800077197C /* tabbarS2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbarS2.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2479,8 +2479,8 @@
 		04DD86231B538DEF0027C5DA /* TabBarImg */ = {
 			isa = PBXGroup;
 			children = (
-				04D1AB0D1B4B7C23005A5A60 /* tabbar2.png */,
-				04D1AB0E1B4B7C23005A5A60 /* tabbarS2.png */,
+				04FAB5D81B72FE800077197C /* tabbar2.png */,
+				04FAB5D91B72FE800077197C /* tabbarS2.png */,
 				04D1AB0F1B4B7C23005A5A60 /* tabbar0.png */,
 				04D1AB101B4B7C23005A5A60 /* tabbarS0.png */,
 				04D1AB111B4B7C23005A5A60 /* tabbar1.png */,
@@ -2702,7 +2702,6 @@
 				04FA75041B687D0300F0440E /* 1.png in Resources */,
 				04FA75211B687D0300F0440E /* 30.png in Resources */,
 				04D21CE31B4269C900C7C392 /* error.png in Resources */,
-				04D1AB151B4B7C23005A5A60 /* tabbar2.png in Resources */,
 				04CD880B1B666EFB00C08AB5 /* 2-4.png in Resources */,
 				04FA750C1B687D0300F0440E /* 9.png in Resources */,
 				04CD88101B666EFB00C08AB5 /* 4-1.png in Resources */,
@@ -2722,6 +2721,7 @@
 				04D0F9A41B3CFDA8008C2DB3 /* README.txt in Resources */,
 				046EF84B1B67A9AF004790F3 /* 1242 2208.png in Resources */,
 				04D06BC51B43C45A00C9AFBD /* UMSCommentInputController.xib in Resources */,
+				04FAB5DA1B72FE800077197C /* tabbar2.png in Resources */,
 				04CD880A1B666EFB00C08AB5 /* 2-3.png in Resources */,
 				04CD88091B666EFB00C08AB5 /* 2-2.png in Resources */,
 				04CD880D1B666EFB00C08AB5 /* 2-6.png in Resources */,
@@ -2735,10 +2735,10 @@
 				04D1AB191B4B7C23005A5A60 /* tabbar1.png in Resources */,
 				04FA75101B687D0300F0440E /* 13.png in Resources */,
 				04CD88071B666EFB00C08AB5 /* 1-5.png in Resources */,
+				04FAB5DB1B72FE800077197C /* tabbarS2.png in Resources */,
 				04CD88061B666EFB00C08AB5 /* 1-4.png in Resources */,
 				046EF8481B67A9AF004790F3 /* 640 960.png in Resources */,
 				04CD88081B666EFB00C08AB5 /* 2-1.png in Resources */,
-				04D1AB161B4B7C23005A5A60 /* tabbarS2.png in Resources */,
 				04D06BC71B43C45A00C9AFBD /* UMShareEditViewController.xib in Resources */,
 				04D1D77A1B60E6F400F3F343 /* SVProgressHUD.bundle in Resources */,
 				04D06BC61B43C45A00C9AFBD /* UMSCommentInputControlleriPad.xib in Resources */,

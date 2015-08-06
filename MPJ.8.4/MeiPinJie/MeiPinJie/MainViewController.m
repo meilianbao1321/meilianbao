@@ -1054,4 +1054,23 @@ static BOOL isHidden =NO;
     NSURLRequest * reuqest =[NSURLRequest requestWithURL:self.currentUrl];
     [_webView loadRequest:reuqest];
 }
+
+#pragma mark --横屏设置
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
+{
+    return toInterfaceOrientation != UIDeviceOrientationPortraitUpsideDown;
+}
+
+- (BOOL)shouldAutorotate
+{
+//    if ([self isKindOfClass:[SecondViewController class]]) { // 如果是这个 vc 则支持自动旋转
+//        return YES;
+//    }
+    return NO;
+}
+
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskAllButUpsideDown;
+}
 @end
