@@ -35,6 +35,31 @@
     NSLog(@"第二个视图控制器");
      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(wetchatResult:) name:@"wetchatPayResult" object:nil];
 }
+
+-(void)back{
+    NSString * viewUrlStr =[self.currentUrl absoluteString];
+    NSLog(@"12312131231%@",viewUrlStr );
+    if ([viewUrlStr isEqualToString:@"http://user.m.meilianbao.net/Account/Set"] || [viewUrlStr rangeOfString:@"Order/Index/"].length != 0|| [viewUrlStr rangeOfString:@"/Order/Detail"].length != 0) {
+        app.isReload =YES;
+    }
+    NSLog(@"%d",self.isPresent);
+    if (self.isPresent) {
+        CATransition *animation = [CATransition animation];
+        animation.duration = 0.5f;
+        [animation setType:kCATransitionMoveIn];
+        [animation setSubtype:kCATransitionFromLeft];
+        [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionDefault]];
+        [self dismissViewControllerAnimated:NO completion:nil];
+        [self.view.window.layer addAnimation:animation forKey:nil];
+    }else{
+        [self.navigationController popViewControllerAnimated:YES];
+
+        [self dismissViewControllerAnimated:YES completion:^{
+
+        }];
+    }
+}
+
 - (void)wetchatResult:(NSNotification *)notification{
     NSLog(@"通知传值");
     
@@ -89,13 +114,11 @@
             [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionDefault]];
             [self.view.window.layer addAnimation:animation forKey:nil];
             [self dismissViewControllerAnimated:NO completion:^{
-
-
             }];
 
             return NO;
-
         }
+
         if ([viewUrlStr rangeOfString:@"/VIP/Pay/2"].length !=0&&[urlStr isEqualToString:@"http://m.meilianbao.net/"]) {
             
             app.isReload = YES;
@@ -253,7 +276,6 @@
             return NO;
         }
 
-        
         if([urlStr isEqualToString:@"http://m.meilianbao.net/"]&&[viewUrlStr rangeOfString:@"/VIP/Pay"].length !=0){
             app.tabbar.g_selectedTag = 1;
             [app.tabbar changeTextColor];
@@ -272,6 +294,8 @@
             return NO;
 
         }
+
+
     }
     return YES;
 }

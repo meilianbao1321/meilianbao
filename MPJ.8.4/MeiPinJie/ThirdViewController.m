@@ -254,6 +254,14 @@
             return NO;
         }
 
+        if ([urlStr isEqualToString:@"http://user.m.meilianbao.net/Account/Recruit"]) {
+            NSLog(@"添加简历刷新");
+            app.isReload =YES;
+            [self.navigationController popViewControllerAnimated:YES];
+            return NO;
+
+        }
+
     }
 
     return YES;

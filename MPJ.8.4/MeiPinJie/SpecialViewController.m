@@ -128,6 +128,9 @@
         return NO;
 
     }else if(navigationType ==UIWebViewNavigationTypeOther){
+        if ([urlStr isEqualToString:@"http://mall.m.meilianbao.net/Cart/Confirm"]) {
+            
+        }
 
     }else if (navigationType ==UIWebViewNavigationTypeFormSubmitted){
                 if (([urlStr rangeOfString:@"/Job/Find"].length !=0||[urlStr rangeOfString:@"/Job/Hr"].length !=0) && [viewUrlStr isEqualToString:@"http://m.meilianbao.net/Job/RecruitSearch"]) {

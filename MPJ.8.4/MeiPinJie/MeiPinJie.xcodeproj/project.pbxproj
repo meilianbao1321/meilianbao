@@ -276,6 +276,7 @@
 		04DD207A1B745E7B005C24BA /* rightViewBG(2).png in Resources */ = {isa = PBXBuildFile; fileRef = 04DD20791B745E7B005C24BA /* rightViewBG(2).png */; };
 		04DD207D1B748C42005C24BA /* tabbar1.png in Resources */ = {isa = PBXBuildFile; fileRef = 04DD207B1B748C42005C24BA /* tabbar1.png */; };
 		04DD207E1B748C42005C24BA /* tabbarS1.png in Resources */ = {isa = PBXBuildFile; fileRef = 04DD207C1B748C42005C24BA /* tabbarS1.png */; };
+		04DD20811B74A84A005C24BA /* PgySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DD20801B74A84A005C24BA /* PgySDK.framework */; };
 		04DD59391B463DD800DC6B91 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DD59381B463DD800DC6B91 /* libz.dylib */; };
 		04DD593B1B463DEC00DC6B91 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DD593A1B463DEC00DC6B91 /* libstdc++.dylib */; };
 		04DD593D1B463DF700DC6B91 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DD593C1B463DF700DC6B91 /* CoreTelephony.framework */; };
@@ -929,6 +930,7 @@
 		04DD20791B745E7B005C24BA /* rightViewBG(2).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rightViewBG(2).png"; sourceTree = "<group>"; };
 		04DD207B1B748C42005C24BA /* tabbar1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar1.png; sourceTree = "<group>"; };
 		04DD207C1B748C42005C24BA /* tabbarS1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbarS1.png; sourceTree = "<group>"; };
+		04DD20801B74A84A005C24BA /* PgySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PgySDK.framework; sourceTree = "<group>"; };
 		04DD59381B463DD800DC6B91 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		04DD593A1B463DEC00DC6B91 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
 		04DD593C1B463DF700DC6B91 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
@@ -1034,6 +1036,7 @@
 				04D0F9AA1B3CFDA8008C2DB3 /* libidn.a in Frameworks */,
 				047EF0931B3BD3FC006EF89B /* MapKit.framework in Frameworks */,
 				047EF0911B3BD359006EF89B /* CoreLocation.framework in Frameworks */,
+				04DD20811B74A84A005C24BA /* PgySDK.framework in Frameworks */,
 				04D06BD91B43C54100C9AFBD /* libSocialQQ.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1231,6 +1234,7 @@
 		047EF0A21B3BF715006EF89B /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				04DD207F1B74A84A005C24BA /* pgying */,
 				046EF8361B67A8B7004790F3 /* drawer */,
 				04DAF2061B672A8B006B4C20 /* side */,
 				04CD87E21B666C2900C08AB5 /* startView */,
@@ -2458,6 +2462,14 @@
 			path = RightController;
 			sourceTree = "<group>";
 		};
+		04DD207F1B74A84A005C24BA /* pgying */ = {
+			isa = PBXGroup;
+			children = (
+				04DD20801B74A84A005C24BA /* PgySDK.framework */,
+			);
+			path = pgying;
+			sourceTree = "<group>";
+		};
 		04DD86221B538DC40027C5DA /* NavBarImg */ = {
 			isa = PBXGroup;
 			children = (
@@ -3090,12 +3102,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Lin Chaohua (5ZGY3FM445)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Lin Chaohua (5ZGY3FM445)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Zhengzhou MeiLianBao E-Business Co., Ltd.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Zhengzhou MeiLianBao E-Business Co., Ltd.";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/pgying",
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/PrefixHeader.pch";
 				HEADER_SEARCH_PATHS = (
@@ -3125,7 +3138,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "4925096d-d834-44f1-998c-f3abf09bc3a8";
+				PROVISIONING_PROFILE = "b87fe620-24e5-4503-ae28-87d8b6b58fc5";
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/lib";
 			};
 			name = Debug;
@@ -3135,12 +3148,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Zhengzhou MeiLianBao E-Business Co., Ltd.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Zhengzhou MeiLianBao E-Business Co., Ltd.";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/pgying",
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/PrefixHeader.pch";
 				HEADER_SEARCH_PATHS = (
@@ -3170,7 +3184,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "4925096d-d834-44f1-998c-f3abf09bc3a8";
+				PROVISIONING_PROFILE = "b87fe620-24e5-4503-ae28-87d8b6b58fc5";
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/lib";
 			};
 			name = Release;
@@ -3179,8 +3193,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Lin Chaohua (5ZGY3FM445)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Lin Chaohua (5ZGY3FM445)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Zhengzhou MeiLianBao E-Business Co., Ltd.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Zhengzhou MeiLianBao E-Business Co., Ltd.";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -3193,7 +3207,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "4925096d-d834-44f1-998c-f3abf09bc3a8";
+				PROVISIONING_PROFILE = "b87fe620-24e5-4503-ae28-87d8b6b58fc5";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MeiPinJie.app/MeiPinJie";
 			};
 			name = Debug;
@@ -3202,7 +3216,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Lin Chaohua (5ZGY3FM445)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Zhengzhou MeiLianBao E-Business Co., Ltd.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Zhengzhou MeiLianBao E-Business Co., Ltd.";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -3211,7 +3226,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "4925096d-d834-44f1-998c-f3abf09bc3a8";
+				PROVISIONING_PROFILE = "b87fe620-24e5-4503-ae28-87d8b6b58fc5";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MeiPinJie.app/MeiPinJie";
 			};
 			name = Release;

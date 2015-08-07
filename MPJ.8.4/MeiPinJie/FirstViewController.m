@@ -14,7 +14,7 @@
 #import "UIViewController+JDSideMenu.h"
 #import "SpecialViewController.h"
 #import "APService.h"
-
+#import <PgySDK/PgyManager.h>
 @interface FirstViewController ()
 @end
 
@@ -37,9 +37,9 @@
 
 - (void)viewDidLoad {
     
-    
-    
+    //检查更新
     [super viewDidLoad];
+    [[PgyManager sharedPgyManager] checkUpdate];
     NSLog(@"第一个视图控制器");
 
 }
