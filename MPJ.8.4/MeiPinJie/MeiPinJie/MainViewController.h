@@ -34,11 +34,16 @@
     AppDelegate * app;
 }
 
-@property (nonatomic,assign) BOOL isPresent;
 @property (nonatomic,assign) NSInteger wetchatResult;
+
+@property (nonatomic,assign) BOOL isPresent;
+//判断是否返回的时候需要dismiss
 @property (nonatomic,assign) id mainDelegate;
+//是否有下拉刷新中
 @property (nonatomic,assign) BOOL isDownRefresh;
+//下拉刷新中
 @property (nonatomic,assign) BOOL reloading;
+//判断是否是首页
 @property (nonatomic,assign) BOOL isHome;
 @property (nonatomic,assign) BOOL isMainHome;
 @property (nonatomic,strong) CLLocationManager * location;
@@ -55,5 +60,5 @@
 -(void)AliPay;
 -(void)YinlianPay;
 -(void)wetchatPay;
-
+-(void)back;
 @end

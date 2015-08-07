@@ -41,8 +41,6 @@
     
     [super viewDidLoad];
     NSLog(@"第一个视图控制器");
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pushToSpecialView:) name:kJPFNetworkDidReceiveMessageNotification object:nil];
-
 
 }
 

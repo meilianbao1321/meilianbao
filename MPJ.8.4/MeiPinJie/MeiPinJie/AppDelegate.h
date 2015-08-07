@@ -13,12 +13,13 @@
 #import "UMSocial.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate,WXApiDelegate>
-@property (nonatomic ,assign )BOOL isBack;
 @property (strong,nonatomic) NSString *currentResp;
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) UIWindow *tmpWomdow;
 @property (strong,nonatomic) MMDrawerController * rooVC;
 @property (strong, nonatomic) YXTabBarViewController *tabbar;
+
+@property (nonatomic ,assign )BOOL isBack;
 @property (nonatomic,assign)BOOL isReload;
 
 @end

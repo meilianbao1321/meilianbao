@@ -23,7 +23,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSLog(@"第四个视图控制器");
-//    [self createNavWithLeftImage:@"back.png" RightImage:@"about.png"];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(wetchatResult:) name:@"wetchatPayResult" object:nil];
 }
 
@@ -57,10 +56,6 @@
     }
     
 }
-
-
-
-
 
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
     NSString * urlStr =[NSString stringWithFormat:@"%@",request.URL];
@@ -136,8 +131,6 @@
             return NO;
         }
 
-        
-       
         //添加银行卡返回
         if ([viewUrlStr rangeOfString:@"Account/AddBank"].length !=0 &&[urlStr isEqualToString:@"http://user.m.meilianbao.net/Account/Set"]) {
             [self.navigationController popViewControllerAnimated:YES];
@@ -186,8 +179,10 @@
         fvc.delegate=self;
         [self.navigationController pushViewController:fvc animated:YES];
         return NO;
+        
     
     }    else if (navigationType ==UIWebViewNavigationTypeOther){
+
         if ( [urlStr rangeOfString:@"/Raw/Pay"].length !=0) {
             NSString * str = [_webView stringByEvaluatingJavaScriptFromString:@"SendToRaw()"];
             NSData *JSONData = [str dataUsingEncoding:NSUTF8StringEncoding];
@@ -204,7 +199,6 @@
 
                 [self wetchatPay];
             }
-            
             return NO;
         }
 
@@ -215,35 +209,14 @@
             app.tabbar.selectedIndex = 3;
             [self.navigationController popToRootViewControllerAnimated:YES];
             return NO;
-
         }
     }
     return YES;
 
 }
-- (void)viewWillAppear:(BOOL)animated{
-    if (app.isReload == YES) {
-        [_webView reload];
-    }else{
-        NSLog(@"不知道咋的没刷新");
-    }
-    NSLog(@"123");
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(isrefresh:) name:@"isRefresh" object:nil];
-}
 
 
-- (void)isrefresh:(NSNotification *)notification{
-    NSDictionary *dic = [notification userInfo];
-    NSLog(@"dic== %@",dic);
-    NSString *str = [dic objectForKey:@"result"];
-    if ([str isEqualToString:@"1"]) {
-        NSLog(@"页面刷新111");
-        [_webView reload];
-    }else{
-        NSLog(@"不刷新");
-    }
 
-}
 
 -(void)popwithSecondUrl:(NSURL *)url{
     self.currentUrl =url;

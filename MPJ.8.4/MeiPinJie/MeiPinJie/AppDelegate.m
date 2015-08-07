@@ -24,6 +24,7 @@
 #import "DDMenuController.h"
 #import "MMExampleDrawerVisualStateManager.h"
 
+#import "UMSocialSinaHandler.h"
 
 @interface AppDelegate (){
     NSInteger n;
@@ -49,14 +50,15 @@
     FirstViewController * mvc =[[FirstViewController alloc]init];
     mvc.isHome = YES;
     mvc.isMainHome =YES;
+
     SecondViewController *sec = [[SecondViewController alloc] init];
     sec.isHome = YES;
     sec.currentUrl =[NSURL URLWithString:BBS_URL];
 
-
     ThirdViewController *thi = [[ThirdViewController alloc] init];
     thi.isHome = YES;
     thi.currentUrl = [NSURL URLWithString:BRAND_URL];
+
     FourViewController *fou = [[FourViewController alloc] init];
     fou.isHome = YES;
     fou.currentUrl = [NSURL URLWithString:USER_URL];
@@ -65,6 +67,7 @@
     UINavigationController *second = [[UINavigationController alloc] initWithRootViewController:sec];
     UINavigationController *third = [[UINavigationController alloc] initWithRootViewController:thi];
     UINavigationController *four = [[UINavigationController alloc] initWithRootViewController:fou];
+
     self.tabbar = [[YXTabBarViewController alloc] init];
     self.tabbar.viewControllers = [[NSArray alloc] initWithObjects:navC,second,third,four, nil];
     [self.tabbar customBar];
@@ -72,14 +75,16 @@
     if (![[NSUserDefaults standardUserDefaults] boolForKey:@"firstLaunch"]) {
              [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstLaunch"];
              NSLog(@"第一次启动");
-
 //如果是第一次启动的话，使用UserGuideViewController（用户引导页面）作为根视图
-
         UserGuideViewController *userguide = [[UserGuideViewController alloc] init];
         self.window.rootViewController = userguide;
+
     }else{
+
         MenuViewController * menu = [[MenuViewController alloc]init];
+
         if (IOS6) {
+
             self.rooVC  = [[MMDrawerController alloc] initWithCenterViewController:self.tabbar leftDrawerViewController:menu];
             [self.rooVC  setMaximumLeftDrawerWidth:200];
             //设置侧拉门开与关的动画
@@ -96,7 +101,9 @@
                 
             }];
             self.window.rootViewController =self.rooVC ;
+
         }else{
+
             JDSideMenu * sideMenu =[[JDSideMenu alloc]initWithContentController:self.tabbar menuController:menu];
             mvc.mainDelegate = sideMenu;
             sec.mainDelegate = sideMenu;
@@ -104,12 +111,13 @@
             fou.mainDelegate = sideMenu;
             sideMenu.menuWidth =VIEW_WIDH/5*3;
             self.window.rootViewController =sideMenu;
+
         }
 
 
           }
 
-
+    
     [self.window makeKeyAndVisible];
     
     self.tmpWomdow =[[UIWindow alloc]initWithFrame:CGRectMake(0, VIEW_HEIGHT, VIEW_WIDH, VIEW_HEIGHT)];
@@ -159,7 +167,7 @@
     return YES;
 }
 
-
+//刷新网络状况
 -(void)stateReload{
     [self updateInterfaceWithReachability:_hostReach];
 }
@@ -277,9 +285,13 @@
 
 
 -(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
-   
-    NSLog(@"%@",url.host);
+    NSLog(@"this is url------%@",[url absoluteString]);
+    NSLog(@"this is url.host------%@",url.host);
 
+
+    if ([[url absoluteString] hasPrefix:@"sina"]) {
+        return [UMSocialSnsService handleOpenURL:url];
+    }else{
     if ([url.host isEqualToString:@"safepay"]) {
         [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
             NSLog(@"支付宝回调");
@@ -289,14 +301,20 @@
     }else{
    return [WXApi handleOpenURL:url delegate:self];
     }
+    }
 
 }
 
 -(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
+    NSLog(@"this is url------%@",[url absoluteString]);
+    NSLog(@"this is url.host------%@",url.host);
+    if ([[url absoluteString] hasPrefix:@"sina"]) {
+    return [UMSocialSnsService handleOpenURL:url];
+    }else{
     return [WXApi handleOpenURL:url delegate:self];
-    
-}
+    }
 
+}
 
 - (void)onResp:(BaseResp *)resp{
     NSLog(@"执行了");
@@ -308,12 +326,14 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"wetchatPayResult" object:self userInfo:@{@"result":self.currentResp}];
 }
 
-//- (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window{
-//    if ([NSStringFromClass([[[window subviews]lastObject]class])isEqualToString:@"UITransitionView"]) {
-//        return UIInterfaceOrientationMaskAll;
-//    }
-//    return UIInterfaceOrientationMaskPortrait;
-//}
+//播放器横评适配
+
+- (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window{
+    if ([NSStringFromClass([[[window subviews]lastObject]class])isEqualToString:@"UITransitionView"]) {
+        return UIInterfaceOrientationMaskAll;
+    }
+    return UIInterfaceOrientationMaskPortrait;
+}
 
 
 

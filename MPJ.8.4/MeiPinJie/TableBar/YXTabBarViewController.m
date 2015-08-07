@@ -141,7 +141,7 @@ enum barsize{
     //second
     imageView2 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tabbar1"] highlightedImage:nil];
     imageView2.frame = CGRectMake(img_x, img_y, img_width, tabitem_hight);
-    NSString *str1 = @"美业论坛";
+    NSString *str1 = @"发现";
     
 //    UILabel *label1 = [[UILabel alloc] initWithFrame:CGRectMake(0, tabitem_hight, tabitem_width, 20)];
 //    label1.text = str1;
@@ -228,12 +228,6 @@ enum barsize{
 
 
 -(void)buttonClickAction:(UIButton *)sender{
-    
-    
-  
-    
-    
-  
 
      if(g_selectedTag==sender.tag)
         return;
@@ -263,8 +257,6 @@ enum barsize{
    // ((UIImageView *)sender.subviews[0]).highlighted=YES;
      self.selectedIndex = sender.tag-1;
     
-    
-   
 }
 
 - (void)changeTextColor

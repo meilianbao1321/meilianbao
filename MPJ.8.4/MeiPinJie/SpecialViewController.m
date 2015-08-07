@@ -17,25 +17,11 @@
 
 - (void)viewDidLoad {
     self.hidesBottomBarWhenPushed =YES;
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(isrefresh:) name:@"isRefresh" object:nil];
     [super viewDidLoad];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-}
-
-- (void)isrefresh:(NSNotification *)notification{
-    NSDictionary *dic = [notification userInfo];
-    NSLog(@"dic== %@",dic);
-    NSString *str = [dic objectForKey:@"result"];
-    if ([str isEqualToString:@"1"]) {
-        NSLog(@"页面刷新111");
-        [_webView reload];
-    }else{
-        NSLog(@"不刷新");
-    }
-
 }
 
 
@@ -44,17 +30,17 @@
     NSLog(@"urlStr = %@",urlStr);
     NSString * viewUrlStr =[NSString stringWithFormat:@"%@",self.currentUrl];
 
+    if ([[self.currentUrl absoluteString] isEqualToString:@"http://m.meilianbao.net/home/about"]) {
+        [self showVer];
+    }
 
     if (navigationType ==UIWebViewNavigationTypeLinkClicked) {
         
-        if ([viewUrlStr rangeOfString:@"/about"].length != 0 && [urlStr isEqualToString:@"itms-services://?action=download-manifest&url=https%3A%2F%2Fwww.pgyer.com%2Fapiv1%2Fapp%2Fplist%3FaId%3Da576560c3f94b3115e7653671a26997e%26_api_key%3D90146f0a35b1481efb46e34b0d5e8c1c"]) {
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-services://?action=download-manifest&url=https%3A%2F%2Fwww.pgyer.com%2Fapiv1%2Fapp%2Fplist%3FaId%3Da576560c3f94b3115e7653671a26997e%26_api_key%3D90146f0a35b1481efb46e34b0d5e8c1c"]];
-            [SVProgressHUD showWithStatus:@"正在升级中，请稍等..."];
+        if ([viewUrlStr rangeOfString:@"/about"].length != 0 && [urlStr isEqualToString:@"http://www.meilianbao.net/home/iosdownload"]) {
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.meilianbao.net/home/iosdownload"]];
             return NO;
             
         }
-
-
 
         if ( [urlStr rangeOfString:@"/Video/DailyLessonDetail"].length !=0) {
             
@@ -115,7 +101,7 @@
             [animation setType:kCATransitionMoveIn];
             [animation setSubtype:kCATransitionFromRight];
             [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionDefault]];
-                    svc.isPresent =YES;
+            svc.isPresent =YES;
             [self presentViewController:svc animated:NO completion:nil];
             [self.view.window.layer addAnimation:animation forKey:nil];
 
@@ -156,6 +142,16 @@
 }
 
 
+
+-(void)showVer{
+    NSDictionary * infoDict =[[NSBundle mainBundle]infoDictionary];
+    NSString * verCurrent = [infoDict objectForKey:@"CFBundleVersion"];
+    NSLog(@"------%@",verCurrent);
+    NSString * verStr =[NSString stringWithFormat:@"$.Raw.CallBack(5,'%@')",verCurrent];
+    [_webView stringByEvaluatingJavaScriptFromString:verStr];
+}
+
+//可封装成工具类
 #pragma mark --clearCache
 //计算单个文件的大小；
 -(float)fileSizeAtPath:(NSString *)path{

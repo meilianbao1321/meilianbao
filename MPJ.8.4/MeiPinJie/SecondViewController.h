@@ -15,5 +15,4 @@
 #import "ThirdViewController.h"
 @interface SecondViewController : MainViewController<ThirdViewDelegate>
 @property (nonatomic,assign)  id delegate;
-@property (nonatomic,strong) NSString * isrefresh;
 @end

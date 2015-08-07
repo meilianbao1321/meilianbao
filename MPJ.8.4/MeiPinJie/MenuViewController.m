@@ -184,7 +184,7 @@
             mvc.currentUrl =request.URL;
             UINavigationController * navC = [[UINavigationController alloc]initWithRootViewController:mvc];
             [self presentViewController:navC animated:NO completion:^{
-                mvc.isPresent =YES;
+            mvc.isPresent =YES;
             }];
             [self.view.window.layer addAnimation:animation forKey:nil];
         }

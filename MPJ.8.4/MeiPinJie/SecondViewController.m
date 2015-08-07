@@ -63,10 +63,7 @@
     
 }
 
--(void)viewWillDisappear:(BOOL)animated{
-    self.isrefresh = @"1";
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"isRefresh" object:self userInfo:@{@"result":self.isrefresh}];
-}
+
 
 
 
@@ -221,6 +218,7 @@
         }
         if ([urlStr rangeOfString:@"/Order/Detail"].length !=0 ) {
             self.isDownRefresh =YES;
+
             return YES;
         }
 

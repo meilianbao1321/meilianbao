@@ -99,14 +99,7 @@
     if ( app.isReload == YES) {
         [_webView reload];
         app.isReload =NO;
-    }else{
-        
     }
-    
-    
-    
-    
-    
 }
 
 -(void)createShareWith:(NSURL *)url{
@@ -118,7 +111,8 @@
     //设置qq
     [UMSocialQQHandler setQQWithAppId:@"1104783888" appKey:@"OT3A59l4sEFjuwTW" url:[url absoluteString]];
     //打开新浪微博的sso开关
-    [UMSocialSinaHandler openSSOWithRedirectURL:nil];
+    [UMSocialSinaHandler openSSOWithRedirectURL:@"http://wwww.meilianbao.net"];
+    
     [UMSocialConfig hiddenNotInstallPlatforms:@[UMShareToWechatSession,UMShareToLWTimeline,UMShareToWechatFavorite,UMShareToQQ,UMShareToQzone,UMShareToSina]];
 }
 
@@ -295,9 +289,6 @@
             NSLog(@"btnImage === %@",model.btnImage);
             _rightIV.hidden =NO;
             [_rightIV sd_setImageWithURL:[NSURL URLWithString:model.btnImage]];
-
-//            [_rightBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-//            [_rightBtn setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
         }
         if (model.btnName.length !=0) {
             _righLabel.hidden =NO;
@@ -342,6 +333,7 @@
         [self.view.window.layer addAnimation:animation forKey:nil];
     }else{
         [self.navigationController popViewControllerAnimated:YES];
+
         [self dismissViewControllerAnimated:YES completion:^{
 
         }];
@@ -414,13 +406,16 @@ static BOOL isHidden =NO;
         downList.homeBtn.tag =BTN_TAG+11;
         downList.shareBtn.tag =BTN_TAG+12;
         downList.refresh.tag =BTN_TAG+13;
+
         [downList.homeBtn addTarget:self action:@selector(backToHome) forControlEvents:UIControlEventTouchUpInside];
         [downList.shareBtn addTarget:self action:@selector(share) forControlEvents:UIControlEventTouchUpInside];
         [downList.refresh addTarget:self action:@selector(refreshWebView) forControlEvents:UIControlEventTouchUpInside];
+
         [_rnv addSubview:downList];
         [self.view addSubview:_rnv];
     }
     _rnv.hidden =isHidden;
+
     NSLog(@"%d",isHidden);
     isHidden =!isHidden;
 }
@@ -861,6 +856,8 @@ static BOOL isHidden =NO;
 }
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
+    NSString * tmpLoction  = [NSString stringWithFormat:@"$.Raw.CallBack(2)"];
+    [_webView stringByEvaluatingJavaScriptFromString:tmpLoction];
     [self stopLocation];
     [SVProgressHUD dismissWithError:@"定位失败"];
 
@@ -938,19 +935,11 @@ static BOOL isHidden =NO;
             [self useLocation];
         }
 
-    if ([[self.currentUrl absoluteString] isEqualToString:@"http://m.meilianbao.net/home/about"]) {
-        [self showVer];
-    }
+
 }
 
 
--(void)showVer{
-    NSDictionary * infoDict =[[NSBundle mainBundle]infoDictionary];
-    NSString * verCurrent = [infoDict objectForKey:@"CFBundleVersion"];
-    NSLog(@"------%@",verCurrent);
-    NSString * verStr =[NSString stringWithFormat:@"$.Raw.CallBack(5,'%@')",verCurrent];
-    [_webView stringByEvaluatingJavaScriptFromString:verStr];
-}
+
 
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
     //获得所有html界面所有源代码
@@ -961,6 +950,8 @@ static BOOL isHidden =NO;
     //@"document.body.innerHTML"
     return YES;
 }
+
+
 
 
 #pragma mark --EGORrfreshDelegate
@@ -997,6 +988,8 @@ static BOOL isHidden =NO;
     [super didReceiveMemoryWarning];
 }
 
+
+//可封装成下载类
 #pragma mark --RequestDelegate
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response{
     [SVProgressHUD show];
@@ -1015,7 +1008,7 @@ static BOOL isHidden =NO;
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection{
 
     [UMSocialSnsService presentSnsIconSheetView:self appKey:APP_KEY shareText:_mlbModel.shareTitle shareImage:nil shareToSnsNames:[NSArray arrayWithObjects:UMShareToWechatSession,UMShareToWechatTimeline,UMShareToWechatFavorite,UMShareToQQ,UMShareToQzone,UMShareToSina,UMShareToSms,nil] delegate:self];
-    //
+
     [UMSocialData defaultData].extConfig.wechatSessionData.url =_mlbModel.shareUrl;
     [UMSocialData defaultData].extConfig.wechatSessionData.shareImage =[UIImage imageWithData:_backData];
 
@@ -1036,44 +1029,30 @@ static BOOL isHidden =NO;
     NSString * tmpStr =[NSString stringWithFormat:@"%@ %@",_mlbModel.shareTitle,_mlbModel.shareUrl];
     [UMSocialData defaultData].extConfig.smsData.shareText =tmpStr;
 
-
 }
-
-#pragma mark --ShareDelegate
-//第三方分享的回调
--(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
-    return [UMSocialSnsService handleOpenURL:url];
-}
-
--(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
-    return [UMSocialSnsService handleOpenURL:url];
-}
-
 
 #pragma mark --SpecialViewDelegate
 -(void)popwithUrl:(NSURL *)url{
     self.currentUrl =url;
-
     NSURLRequest * reuqest =[NSURLRequest requestWithURL:self.currentUrl];
     [_webView loadRequest:reuqest];
 }
 
-#pragma mark --横屏设置
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
-{
-    return toInterfaceOrientation != UIDeviceOrientationPortraitUpsideDown;
-}
+//#pragma mark --横屏设置
+//- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
+//{
+//    return toInterfaceOrientation != UIDeviceOrientationPortraitUpsideDown;
+//}
+//
+//- (BOOL)shouldAutorotate
+//{
+//
+//    return NO;
+//}
+//
+//- (NSUInteger)supportedInterfaceOrientations
+//{
+//    return UIInterfaceOrientationMaskAllButUpsideDown;
+//}
 
-- (BOOL)shouldAutorotate
-{
-//    if ([self isKindOfClass:[SecondViewController class]]) { // 如果是这个 vc 则支持自动旋转
-//        return YES;
-//    }
-    return NO;
-}
-
-- (NSUInteger)supportedInterfaceOrientations
-{
-    return UIInterfaceOrientationMaskAllButUpsideDown;
-}
 @end
