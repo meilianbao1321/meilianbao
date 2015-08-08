@@ -167,6 +167,13 @@
             return YES;
         }
 
+//        //添加银行卡返回
+//        if ([viewUrlStr rangeOfString:@"Account/AddBank"].length !=0) {
+//            app.isReload =YES;
+//            [self.navigationController popViewControllerAnimated:YES];
+//            return NO;
+//        }
+
         if ([urlStr rangeOfString:@"tel"].length !=0) {
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlStr]];
             return NO;

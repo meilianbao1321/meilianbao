@@ -18,6 +18,7 @@
 - (void)viewDidLoad {
     self.hidesBottomBarWhenPushed =YES;
     [super viewDidLoad];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -25,19 +26,18 @@
 }
 
 
+
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
     NSString * urlStr =[NSString stringWithFormat:@"%@",request.URL];
     NSLog(@"urlStr = %@",urlStr);
     NSString * viewUrlStr =[NSString stringWithFormat:@"%@",self.currentUrl];
 
-    if ([[self.currentUrl absoluteString] isEqualToString:@"http://m.meilianbao.net/home/about"]) {
-        [self showVer];
-    }
+
 
     if (navigationType ==UIWebViewNavigationTypeLinkClicked) {
         
-        if ([viewUrlStr rangeOfString:@"/about"].length != 0 && [urlStr isEqualToString:@"http://www.meilianbao.net/home/iosdownload"]) {
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.meilianbao.net/home/iosdownload"]];
+        if ([viewUrlStr rangeOfString:@"/about"].length != 0 && [urlStr isEqualToString:@"http://m.meilianbao.net/Home/IosDownload"]) {
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://m.meilianbao.net/Home/IosDownload"]];
             return NO;
             
         }
@@ -146,13 +146,7 @@
 
 
 
--(void)showVer{
-    NSDictionary * infoDict =[[NSBundle mainBundle]infoDictionary];
-    NSString * verCurrent = [infoDict objectForKey:@"CFBundleVersion"];
-    NSLog(@"------%@",verCurrent);
-    NSString * verStr =[NSString stringWithFormat:@"$.Raw.CallBack(5,'%@')",verCurrent];
-    [_webView stringByEvaluatingJavaScriptFromString:verStr];
-}
+
 
 //可封装成工具类
 #pragma mark --clearCache

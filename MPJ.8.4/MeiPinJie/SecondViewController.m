@@ -127,6 +127,8 @@
             return NO;
         }
 
+        
+
         if([urlStr rangeOfString:@"/Login/"].length !=0&&[viewUrlStr isEqualToString:@"http://user.m.meilianbao.net/Login/ForgetPwd"]){
             [self.navigationController popViewControllerAnimated:YES];
             return NO;
@@ -134,6 +136,12 @@
 
         //添加银行卡返回
         if ([viewUrlStr rangeOfString:@"Account/AddBank"].length !=0 &&[urlStr isEqualToString:@"http://user.m.meilianbao.net/Account/Set"]) {
+            [self.navigationController popViewControllerAnimated:YES];
+            return NO;
+        }
+        //添加银行卡返回
+        if ([viewUrlStr rangeOfString:@"Account/AddBank"].length !=0 &&[urlStr isEqualToString:@"http://user.m.meilianbao.net/Account/Withdraw"]) {
+            app.isReload =YES;
             [self.navigationController popViewControllerAnimated:YES];
             return NO;
         }
@@ -146,7 +154,13 @@
                 return NO;
             }
         }
-
+        //修改密码pop
+        if ([urlStr isEqualToString:@"http://user.m.meilianbao.net/Account"] && [viewUrlStr isEqualToString:@"http://user.m.meilianbao.net/Account/ChangePwd"]) {
+            app.isReload = YES;
+            NSLog(@"dddddd");
+            [self.navigationController popViewControllerAnimated:YES];
+            return NO;
+        }
 
         //视频详细页
         if ( [urlStr rangeOfString:@"/Video/DailyLessonDetail"].length !=0) {

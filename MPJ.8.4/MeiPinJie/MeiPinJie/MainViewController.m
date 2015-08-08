@@ -395,9 +395,9 @@ static BOOL isHidden =NO;
         [_rnv addGestureRecognizer:tap];
         RightNavView * downList =[[[NSBundle mainBundle]loadNibNamed:@"RightNavView" owner:self options:nil]lastObject];
         if (IOS6) {
-            downList.frame =CGRectMake(VIEW_WIDH-150, 44, 144, 174);
+            downList.frame =CGRectMake(VIEW_WIDH-110, 44, 100, 150);
         }else{
-            downList.frame =CGRectMake(VIEW_WIDH-150, 64, 144, 174);
+            downList.frame =CGRectMake(VIEW_WIDH-110, 64, 100, 150);
         }
         downList.homeBtn.backgroundColor =[UIColor clearColor];
         downList.shareBtn.backgroundColor =[UIColor clearColor];
@@ -451,6 +451,11 @@ static BOOL isHidden =NO;
     [_lv startLoad];
 }
 
+-(void)reloadWebView{
+    [_webView loadRequest:[NSURLRequest requestWithURL:self.currentUrl]];
+    [_lv startLoad];
+}
+
 -(void)share{
     if (isHidden ==YES) {
         _rnv.hidden =isHidden;
@@ -464,14 +469,20 @@ static BOOL isHidden =NO;
         [UMSocialSnsService presentSnsIconSheetView:self appKey:APP_KEY shareText:SHARE_TEXTE shareImage:nil shareToSnsNames:[NSArray arrayWithObjects:UMShareToWechatSession,UMShareToWechatTimeline,UMShareToWechatFavorite,UMShareToQQ,UMShareToQzone,UMShareToSina,UMShareToSms,UMShareToEmail,nil] delegate:self];
 
         [UMSocialData defaultData].extConfig.wechatSessionData.shareImage =[UIImage imageNamed:SHARE_IMAGE];
+        [UMSocialData defaultData].extConfig.wechatSessionData.title =@"美联宝";
 
         [UMSocialData defaultData].extConfig.wechatTimelineData.shareImage =[UIImage imageNamed:SHARE_IMAGE];
+        [UMSocialData defaultData].extConfig.wechatTimelineData.title =@"美联宝";
 
         [UMSocialData defaultData].extConfig.wechatFavoriteData.shareImage =[UIImage imageNamed:SHARE_IMAGE];
+        [UMSocialData defaultData].extConfig.wechatFavoriteData.title =@"美联宝";
 
         [UMSocialData defaultData].extConfig.qqData.shareImage =[UIImage imageNamed:SHARE_IMAGE];
+        [UMSocialData defaultData].extConfig.qqData.title =@"美联宝";
 
         [UMSocialData defaultData].extConfig.qzoneData.shareImage =[UIImage imageNamed:SHARE_IMAGE];
+        [UMSocialData defaultData].extConfig.qzoneData.title =@"美联宝";
+
         //短信分享内容
         NSString * tmpStr =[NSString stringWithFormat:@"%@:%@",SHARE_TEXTE,[self.currentUrl absoluteString]];
         [UMSocialData defaultData].extConfig.smsData.shareText =tmpStr;
@@ -859,7 +870,7 @@ static BOOL isHidden =NO;
     NSString * tmpLoction  = [NSString stringWithFormat:@"$.Raw.CallBack(2)"];
     [_webView stringByEvaluatingJavaScriptFromString:tmpLoction];
     [self stopLocation];
-    [SVProgressHUD dismissWithError:@"定位失败"];
+    [SVProgressHUD dismissWithError:@"定位失败,请您检查定位服务是否打开。"];
 
 }
 
@@ -934,12 +945,20 @@ static BOOL isHidden =NO;
         if (_mlbModel.isLoction ==1) {
             [self useLocation];
         }
-
+    if ([[self.currentUrl absoluteString] isEqualToString:@"http://m.meilianbao.net/home/about"]) {
+        [self showVer];
+    }
 
 }
 
 
-
+-(void)showVer{
+    NSDictionary * infoDict =[[NSBundle mainBundle]infoDictionary];
+    NSString * verCurrent = [infoDict objectForKey:@"CFBundleVersion"];
+    NSString * verStr =[NSString stringWithFormat:@"$.Raw.CallBack(5,'%@')",verCurrent];
+    NSLog(@"------%@",verStr);
+    [_webView stringByEvaluatingJavaScriptFromString:verStr];
+}
 
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
     //获得所有html界面所有源代码
@@ -1007,21 +1026,26 @@ static BOOL isHidden =NO;
 
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection{
 
-    [UMSocialSnsService presentSnsIconSheetView:self appKey:APP_KEY shareText:_mlbModel.shareTitle shareImage:nil shareToSnsNames:[NSArray arrayWithObjects:UMShareToWechatSession,UMShareToWechatTimeline,UMShareToWechatFavorite,UMShareToQQ,UMShareToQzone,UMShareToSina,UMShareToSms,nil] delegate:self];
+    [UMSocialSnsService presentSnsIconSheetView:self appKey:APP_KEY shareText:_mlbModel.sharedesc shareImage:nil shareToSnsNames:[NSArray arrayWithObjects:UMShareToWechatSession,UMShareToWechatTimeline,UMShareToWechatFavorite,UMShareToQQ,UMShareToQzone,UMShareToSina,UMShareToSms,nil] delegate:self];
 
     [UMSocialData defaultData].extConfig.wechatSessionData.url =_mlbModel.shareUrl;
+    [UMSocialData defaultData].extConfig.wechatSessionData.title =_mlbModel.shareTitle;
     [UMSocialData defaultData].extConfig.wechatSessionData.shareImage =[UIImage imageWithData:_backData];
 
     [UMSocialData defaultData].extConfig.wechatTimelineData.url =_mlbModel.shareUrl;
+    [UMSocialData defaultData].extConfig.wechatTimelineData.title =_mlbModel.shareTitle;
     [UMSocialData defaultData].extConfig.wechatTimelineData.shareImage =[UIImage imageWithData:_backData];
 
     [UMSocialData defaultData].extConfig.wechatFavoriteData.url =_mlbModel.shareUrl;
+    [UMSocialData defaultData].extConfig.wechatFavoriteData.title =_mlbModel.shareTitle;
     [UMSocialData defaultData].extConfig.wechatFavoriteData.shareImage =[UIImage imageWithData:_backData];
 
     [UMSocialData defaultData].extConfig.qqData.url =_mlbModel.shareUrl;
+    [UMSocialData defaultData].extConfig.qqData.title =_mlbModel.shareTitle;
     [UMSocialData defaultData].extConfig.qqData.shareImage =[UIImage imageWithData:_backData];
 
     [UMSocialData defaultData].extConfig.qzoneData.url =_mlbModel.shareUrl;
+    [UMSocialData defaultData].extConfig.qzoneData.title =_mlbModel.shareTitle;
     [UMSocialData defaultData].extConfig.qzoneData.shareImage =[UIImage imageWithData:_backData];
 
     //短信分享内容

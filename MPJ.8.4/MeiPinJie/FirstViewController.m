@@ -39,10 +39,17 @@
     
     //检查更新
     [super viewDidLoad];
-    [[PgyManager sharedPgyManager] checkUpdate];
-    NSLog(@"第一个视图控制器");
+   [[PgyManager sharedPgyManager] checkUpdate];
 
 }
+//    [[PgyManager sharedPgyManager] checkUpdateWithDelegete:self selector:@selector(upVersion:)];
+//    NSLog(@"第一个视图控制器");
+//
+//}
+//
+//-(void)upVersion:(NSDictionary *)dict{
+//    NSLog(@"%@",dict);
+//}
 
 -(void)pushToSpecialView:(NSNotification *)notification{
     NSLog(@"this is userInfo :%@",notification.userInfo);

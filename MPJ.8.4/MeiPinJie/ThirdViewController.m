@@ -54,6 +54,29 @@
     
 }
 
+-(void)back{
+    NSString * viewUrlStr =[self.currentUrl absoluteString];
+    if ([viewUrlStr isEqualToString:@"http://user.m.meilianbao.net/Account/Resume"]) {
+        app.isReload =YES;
+    }
+    NSLog(@"%d",self.isPresent);
+    if (self.isPresent) {
+        CATransition *animation = [CATransition animation];
+        animation.duration = 0.5f;
+        [animation setType:kCATransitionMoveIn];
+        [animation setSubtype:kCATransitionFromLeft];
+        [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionDefault]];
+        [self dismissViewControllerAnimated:NO completion:nil];
+        [self.view.window.layer addAnimation:animation forKey:nil];
+    }else{
+        [self.navigationController popViewControllerAnimated:YES];
+
+        [self dismissViewControllerAnimated:YES completion:^{
+
+        }];
+    }
+}
+
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
     NSString * urlStr =[NSString stringWithFormat:@"%@",request.URL];
     NSLog(@"%@",urlStr);
@@ -86,9 +109,12 @@
 
         //添加银行卡返回
         if ([viewUrlStr rangeOfString:@"Account/AddBank"].length !=0 &&[urlStr isEqualToString:@"http://user.m.meilianbao.net/Account/Set"]) {
+            app.isReload =YES;
             [self.navigationController popViewControllerAnimated:YES];
             return NO;
         }
+
+
 
         //退出登录
         if ([viewUrlStr rangeOfString:@"/Account/Set"].length !=0 &&[urlStr isEqualToString:@"http://user.m.meilianbao.net/Login"]) {
@@ -213,6 +239,14 @@
             return NO;
 
         }
+
+        //返回至钱包
+        if([urlStr isEqualToString:@"http://user.m.meilianbao.net/Account/Wallet"]){
+            [self.navigationController popViewControllerAnimated:YES];
+            return NO;
+
+        }
+
         
         FourViewController * fvc =[[FourViewController alloc]init];
         fvc.hidesBottomBarWhenPushed =YES;
