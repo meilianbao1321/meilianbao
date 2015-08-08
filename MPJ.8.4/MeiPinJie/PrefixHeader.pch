@@ -21,7 +21,7 @@
 #define  APP_KEY @"55938c2d67e58eae36003ed7"
 #define  BTN_TAG 10000
 #define  USER_URL @"http://user.m.meilianbao.net/Account"
-#define  MAIN_URL @"http://m.meilianbao.net/"
+#define  MAIN_URL @"http://m.meilianbao.net"
 #define  MENU_URL @"http://m.meilianbao.net/other/nav"
 #define  MALL_URL @"http://mall.m.meilianbao.net/Product"
 #define  CALL_URL @"http://m.meilianbao.net/Home/Contact"

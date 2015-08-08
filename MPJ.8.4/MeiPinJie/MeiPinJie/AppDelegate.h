@@ -18,6 +18,8 @@
 @property (strong, nonatomic) UIWindow *tmpWomdow;
 @property (strong,nonatomic) MMDrawerController * rooVC;
 @property (strong, nonatomic) YXTabBarViewController *tabbar;
+@property (strong, nonatomic) NSString * currentAccountNumber;
+
 
 @property (nonatomic ,assign )BOOL isBack;
 @property (nonatomic,assign)BOOL isReload;

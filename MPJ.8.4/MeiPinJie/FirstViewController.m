@@ -111,6 +111,14 @@
             [self useLocation];
             return NO;
         }
+
+        if ( [tmpStr rangeOfString:@"/Raw/GetPhoneNo/"].length != 0) {
+            NSString * tmpStr =[NSString stringWithFormat:@"$.Raw.CallBack(6,'%@')",app.currentAccountNumber];
+            NSLog(@"tmpStr = %@",tmpStr);
+            [_webView stringByEvaluatingJavaScriptFromString:tmpStr];
+            return NO;
+        }
+        
     }else if (navigationType ==UIWebViewNavigationTypeFormSubmitted){
         if ([tmpStr rangeOfString:@"/Product/Search"].length !=0) {
             SecondViewController * svc =[[SecondViewController alloc]init];

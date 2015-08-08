@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		040BF4F31B75B4EB00562219 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 040BF4F21B75B4EB00562219 /* KeychainItemWrapper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		04174A8E1B38F3D100FA42AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04174A8D1B38F3D100FA42AE /* main.m */; };
 		04174A911B38F3D100FA42AE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04174A901B38F3D100FA42AE /* AppDelegate.m */; };
 		04174A991B38F3D100FA42AE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04174A981B38F3D100FA42AE /* Images.xcassets */; };
@@ -24,10 +25,6 @@
 		046EF8411B67A8B7004790F3 /* MMDrawerVisualState.m in Sources */ = {isa = PBXBuildFile; fileRef = 046EF83B1B67A8B7004790F3 /* MMDrawerVisualState.m */; };
 		046EF8421B67A8B7004790F3 /* MMExampleDrawerVisualStateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 046EF83D1B67A8B7004790F3 /* MMExampleDrawerVisualStateManager.m */; };
 		046EF8431B67A8B7004790F3 /* UIViewController+MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 046EF83F1B67A8B7004790F3 /* UIViewController+MMDrawerController.m */; };
-		046EF8481B67A9AF004790F3 /* 640 960.png in Resources */ = {isa = PBXBuildFile; fileRef = 046EF8441B67A9AF004790F3 /* 640 960.png */; };
-		046EF8491B67A9AF004790F3 /* 640 1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 046EF8451B67A9AF004790F3 /* 640 1136.png */; };
-		046EF84A1B67A9AF004790F3 /* 750 1134.png in Resources */ = {isa = PBXBuildFile; fileRef = 046EF8461B67A9AF004790F3 /* 750 1134.png */; };
-		046EF84B1B67A9AF004790F3 /* 1242 2208.png in Resources */ = {isa = PBXBuildFile; fileRef = 046EF8471B67A9AF004790F3 /* 1242 2208.png */; };
 		047EF08A1B3B9DC2006EF89B /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047EF0891B3B9DC2006EF89B /* MainViewController.m */; };
 		047EF08F1B3BA99C006EF89B /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 047EF08E1B3BA99C006EF89B /* MBProgressHUD.m */; };
 		047EF0911B3BD359006EF89B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 047EF0901B3BD359006EF89B /* CoreLocation.framework */; };
@@ -345,6 +342,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		040BF4F11B75B4EB00562219 /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
+		040BF4F21B75B4EB00562219 /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
 		04174A881B38F3D100FA42AE /* MeiPinJie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeiPinJie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04174A8C1B38F3D100FA42AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04174A8D1B38F3D100FA42AE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -384,10 +383,6 @@
 		046EF83D1B67A8B7004790F3 /* MMExampleDrawerVisualStateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMExampleDrawerVisualStateManager.m; sourceTree = "<group>"; };
 		046EF83E1B67A8B7004790F3 /* UIViewController+MMDrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MMDrawerController.h"; sourceTree = "<group>"; };
 		046EF83F1B67A8B7004790F3 /* UIViewController+MMDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MMDrawerController.m"; sourceTree = "<group>"; };
-		046EF8441B67A9AF004790F3 /* 640 960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "640 960.png"; sourceTree = "<group>"; };
-		046EF8451B67A9AF004790F3 /* 640 1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "640 1136.png"; sourceTree = "<group>"; };
-		046EF8461B67A9AF004790F3 /* 750 1134.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "750 1134.png"; sourceTree = "<group>"; };
-		046EF8471B67A9AF004790F3 /* 1242 2208.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1242 2208.png"; sourceTree = "<group>"; };
 		047EF0881B3B9DC2006EF89B /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = MeiPinJie/MainViewController.h; sourceTree = "<group>"; };
 		047EF0891B3B9DC2006EF89B /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = MeiPinJie/MainViewController.m; sourceTree = "<group>"; wrapsLines = 0; };
 		047EF08B1B3BA589006EF89B /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PrefixHeader.pch; path = ../PrefixHeader.pch; sourceTree = "<group>"; };
@@ -1002,12 +997,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04DD59431B463E4F00DC6B91 /* Security.framework in Frameworks */,
 				04CD87DD1B664C7200C08AB5 /* CoreText.framework in Frameworks */,
 				04CD87521B66309100C08AB5 /* CFNetwork.framework in Frameworks */,
 				04CD87501B66308B00C08AB5 /* CoreFoundation.framework in Frameworks */,
 				04DD593D1B463DF700DC6B91 /* CoreTelephony.framework in Frameworks */,
 				04DD593F1B463E3800DC6B91 /* SystemConfiguration.framework in Frameworks */,
-				04DD59431B463E4F00DC6B91 /* Security.framework in Frameworks */,
 				04CD87561B66311600C08AB5 /* libPushSDK-1.8.4.a in Frameworks */,
 				04D033AE1B58AA81002135D0 /* JavaScriptCore.framework in Frameworks */,
 				04DD59411B463E4200DC6B91 /* libiconv.dylib in Frameworks */,
@@ -1054,9 +1049,6 @@
 		04174A7F1B38F3D100FA42AE = {
 			isa = PBXGroup;
 			children = (
-				048CC0731B66584800C80782 /* libssl.a */,
-				048CC0751B66589300C80782 /* libcrypto.a */,
-				04CD87DC1B664C7200C08AB5 /* CoreText.framework */,
 				04E1C9CA1B413DC100A76D80 /* Re */,
 				047EF0A11B3BF691006EF89B /* Framework */,
 				047EF08C1B3BA93C006EF89B /* Third */,
@@ -1201,6 +1193,8 @@
 				047EF08E1B3BA99C006EF89B /* MBProgressHUD.m */,
 				047EF09C1B3BF66F006EF89B /* Reachability.h */,
 				047EF09D1B3BF66F006EF89B /* Reachability.m */,
+				040BF4F11B75B4EB00562219 /* KeychainItemWrapper.h */,
+				040BF4F21B75B4EB00562219 /* KeychainItemWrapper.m */,
 			);
 			name = Third;
 			sourceTree = "<group>";
@@ -1208,6 +1202,9 @@
 		047EF0A11B3BF691006EF89B /* Framework */ = {
 			isa = PBXGroup;
 			children = (
+				048CC0731B66584800C80782 /* libssl.a */,
+				048CC0751B66589300C80782 /* libcrypto.a */,
+				04CD87DC1B664C7200C08AB5 /* CoreText.framework */,
 				04CD87511B66309100C08AB5 /* CFNetwork.framework */,
 				04CD874F1B66308B00C08AB5 /* CoreFoundation.framework */,
 				04D033AD1B58AA81002135D0 /* JavaScriptCore.framework */,
@@ -2566,10 +2563,6 @@
 			isa = PBXGroup;
 			children = (
 				04E2BEC11B6E444400900A07 /* logoshare.png */,
-				046EF8441B67A9AF004790F3 /* 640 960.png */,
-				046EF8451B67A9AF004790F3 /* 640 1136.png */,
-				046EF8461B67A9AF004790F3 /* 750 1134.png */,
-				046EF8471B67A9AF004790F3 /* 1242 2208.png */,
 				04CD88161B6674A900C08AB5 /* FirstLoadView.jpg */,
 				04CD87EF1B666EFB00C08AB5 /* userGuide */,
 				04DD86241B53983B0027C5DA /* loadingImg */,
@@ -2686,7 +2679,6 @@
 				04D1AB171B4B7C23005A5A60 /* tabbar0.png in Resources */,
 				04FA75051B687D0300F0440E /* 2.png in Resources */,
 				04FA750F1B687D0300F0440E /* 12.png in Resources */,
-				046EF84A1B67A9AF004790F3 /* 750 1134.png in Resources */,
 				04FA75181B687D0300F0440E /* 21.png in Resources */,
 				04FA75141B687D0300F0440E /* 17.png in Resources */,
 				04EF31011B71E79B009BA5C2 /* 4-3.png in Resources */,
@@ -2704,7 +2696,6 @@
 				04CD88171B6674A900C08AB5 /* FirstLoadView.jpg in Resources */,
 				04D06BC81B43C45A00C9AFBD /* UMShareEditViewControlleriPad.xib in Resources */,
 				045A46A91B6F1AD200966022 /* back.png in Resources */,
-				046EF8491B67A9AF004790F3 /* 640 1136.png in Resources */,
 				04CD88031B666EFB00C08AB5 /* 1-1.png in Resources */,
 				04DD207E1B748C42005C24BA /* tabbarS1.png in Resources */,
 				04FA75191B687D0300F0440E /* 22.png in Resources */,
@@ -2731,7 +2722,6 @@
 				04EF30FF1B71E50D009BA5C2 /* toplogo.png in Resources */,
 				04D1D78C1B61EE7600F3F343 /* downlist3.png in Resources */,
 				04D0F9A41B3CFDA8008C2DB3 /* README.txt in Resources */,
-				046EF84B1B67A9AF004790F3 /* 1242 2208.png in Resources */,
 				04D06BC51B43C45A00C9AFBD /* UMSCommentInputController.xib in Resources */,
 				04FAB5DA1B72FE800077197C /* tabbar2.png in Resources */,
 				04CD880A1B666EFB00C08AB5 /* 2-3.png in Resources */,
@@ -2748,7 +2738,6 @@
 				04CD88071B666EFB00C08AB5 /* 1-5.png in Resources */,
 				04FAB5DB1B72FE800077197C /* tabbarS2.png in Resources */,
 				04CD88061B666EFB00C08AB5 /* 1-4.png in Resources */,
-				046EF8481B67A9AF004790F3 /* 640 960.png in Resources */,
 				04CD88081B666EFB00C08AB5 /* 2-1.png in Resources */,
 				04D06BC71B43C45A00C9AFBD /* UMShareEditViewController.xib in Resources */,
 				04D1D77A1B60E6F400F3F343 /* SVProgressHUD.bundle in Resources */,
@@ -2813,6 +2802,7 @@
 				04D0F95F1B3CFDA8008C2DB3 /* XMPPRoomMessageMemoryStorageObject.m in Sources */,
 				043B176B1B5C956900E1B362 /* SpecialViewController.m in Sources */,
 				04D0F9831B3CFDA8008C2DB3 /* XMPPMessageArchiving_Contact_CoreDataObject.m in Sources */,
+				040BF4F31B75B4EB00562219 /* KeychainItemWrapper.m in Sources */,
 				04D06BA61B437B4500C9AFBD /* SecondViewController.m in Sources */,
 				04E1C9CD1B41479B00A76D80 /* FirstViewController.m in Sources */,
 				046EF8401B67A8B7004790F3 /* MMDrawerController.m in Sources */,
@@ -3102,7 +3092,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Zhengzhou MeiLianBao E-Business Co., Ltd.";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Zhengzhou MeiLianBao E-Business Co., Ltd.";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3120,7 +3110,7 @@
 					"$(SRCROOT)/lib",
 				);
 				INFOPLIST_FILE = MeiPinJie/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3148,7 +3138,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Zhengzhou MeiLianBao E-Business Co., Ltd.";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Zhengzhou MeiLianBao E-Business Co., Ltd.";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3166,7 +3156,7 @@
 					"$(SRCROOT)/lib",
 				);
 				INFOPLIST_FILE = MeiPinJie/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

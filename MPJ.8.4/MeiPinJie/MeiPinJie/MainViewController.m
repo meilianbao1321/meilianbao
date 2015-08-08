@@ -948,6 +948,7 @@ static BOOL isHidden =NO;
     if ([[self.currentUrl absoluteString] isEqualToString:@"http://m.meilianbao.net/home/about"]) {
         [self showVer];
     }
+    
 
 }
 

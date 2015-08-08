@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "Reachability.h"
+#import "KeychainItemWrapper.h"
 
 #import "SecondViewController.h"
 #import "ThirdViewController.h"
@@ -47,6 +48,9 @@
     self.window.backgroundColor =[UIColor whiteColor];
     n =0;
 
+    [self setKeyChainValue];
+
+
     FirstViewController * mvc =[[FirstViewController alloc]init];
     mvc.isHome = YES;
     mvc.isMainHome =YES;
@@ -75,7 +79,9 @@
     if (![[NSUserDefaults standardUserDefaults] boolForKey:@"firstLaunch"]) {
              [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstLaunch"];
              NSLog(@"第一次启动");
-//如果是第一次启动的话，使用UserGuideViewController（用户引导页面）作为根视图
+
+
+       //如果是第一次启动的话，使用UserGuideViewController（用户引导页面）作为根视图
         UserGuideViewController *userguide = [[UserGuideViewController alloc] init];
         self.window.rootViewController = userguide;
 
@@ -171,6 +177,27 @@
 -(void)stateReload{
     [self updateInterfaceWithReachability:_hostReach];
 }
+
+
+-(void) setKeyChainValue
+{
+    KeychainItemWrapper *keyWrapper=[[KeychainItemWrapper alloc] initWithIdentifier:@"AccountNumber" accessGroup:nil];
+    self.currentAccountNumber= [keyWrapper objectForKey:CFBridgingRelease(kSecAttrAccount)];
+    if (self.currentAccountNumber.length ==0) {
+        [keyWrapper setObject:@"myChainValues" forKey:(id)CFBridgingRelease(kSecAttrService)];
+        [keyWrapper setObject:[self getuuid] forKey:(id)CFBridgingRelease(kSecAttrAccount)];// 上面两行用来标识一个Item
+        self.currentAccountNumber = [keyWrapper objectForKey:CFBridgingRelease(kSecAttrAccount)];
+    }
+    NSLog(@"%@",self.currentAccountNumber);
+}
+
+-(NSString *) getuuid
+{
+    NSString *identifierForVendor = [[UIDevice currentDevice].identifierForVendor UUIDString];
+    
+    return identifierForVendor;
+}
+
 
 -(void)dealloc{
     [_hostReach stopNotifier];
