@@ -267,6 +267,13 @@
             
         }
 
+        if ( [urlStr rangeOfString:@"/Raw/GetPhoneNo/"].length != 0) {
+            NSString * tmpStr =[NSString stringWithFormat:@"$.Raw.CallBack(6,'%@')",app.currentAccountNumber];
+            NSLog(@"tmpStr = %@",tmpStr);
+            [_webView stringByEvaluatingJavaScriptFromString:tmpStr];
+            return NO;
+        }
+
         if ( [urlStr rangeOfString:@"/Raw/Pay"].length !=0) {
             NSString * str = [_webView stringByEvaluatingJavaScriptFromString:@"SendToRaw()"];
             NSData *JSONData = [str dataUsingEncoding:NSUTF8StringEncoding];

@@ -128,8 +128,16 @@
         return NO;
 
     }else if(navigationType ==UIWebViewNavigationTypeOther){
-        if ([urlStr isEqualToString:@"http://mall.m.meilianbao.net/Cart/Confirm"]) {
-            
+//        if ([urlStr isEqualToString:@"http://mall.m.meilianbao.net/Cart/Confirm"]) {
+//            
+//        }
+
+
+        if ( [urlStr rangeOfString:@"/Raw/GetPhoneNo/"].length != 0) {
+            NSString * tmpStr =[NSString stringWithFormat:@"$.Raw.CallBack(6,'%@')",app.currentAccountNumber];
+            NSLog(@"tmpStr = %@",tmpStr);
+            [_webView stringByEvaluatingJavaScriptFromString:tmpStr];
+            return NO;
         }
 
     }else if (navigationType ==UIWebViewNavigationTypeFormSubmitted){

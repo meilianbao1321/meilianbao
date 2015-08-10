@@ -356,7 +356,7 @@
 //播放器横评适配
 
 - (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window{
-    if ([NSStringFromClass([[[window subviews]lastObject]class])isEqualToString:@"UITransitionView"]) {
+     if ([NSStringFromClass([[[window subviews]lastObject]class])isEqualToString:@"UITransitionView"] && self.isFull ==YES) {
         return UIInterfaceOrientationMaskAll;
     }
     return UIInterfaceOrientationMaskPortrait;

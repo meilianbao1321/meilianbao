@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>9D0E101C-CBA0-49B1-936F-29D850135023</string>
 	<key>IDESourceControlProjectName</key>
-	<string>MeiPinJie</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>BB706457A9F942A9D29A050C9CA1AAD5EF162A06</key>
 		<string>https://github.com/meilianbao1321/meilianbao.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>MPJ.8.4/MeiPinJie/MeiPinJie.xcodeproj</string>
+	<string>MPJ.8.4/MeiPinJie/MeiPinJie.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>BB706457A9F942A9D29A050C9CA1AAD5EF162A06</key>

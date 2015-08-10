@@ -290,6 +290,13 @@
             return NO;
         }
 
+        if ( [urlStr rangeOfString:@"/Raw/GetPhoneNo/"].length != 0) {
+            NSString * tmpStr =[NSString stringWithFormat:@"$.Raw.CallBack(6,'%@')",app.currentAccountNumber];
+            NSLog(@"tmpStr = %@",tmpStr);
+            [_webView stringByEvaluatingJavaScriptFromString:tmpStr];
+            return NO;
+        }
+
         if([urlStr isEqualToString:@"http://m.meilianbao.net/"]&&[viewUrlStr rangeOfString:@"/VIP/Pay"].length !=0){
             app.tabbar.g_selectedTag = 1;
             [app.tabbar changeTextColor];

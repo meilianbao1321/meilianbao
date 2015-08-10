@@ -892,6 +892,7 @@ static BOOL isHidden =NO;
 
 -(void)dealloc{
     [_ev removeFromSuperview];
+    app.isFull =NO;
 }
 
 -(void)webViewDidStartLoad:(UIWebView *)webView{
@@ -947,6 +948,10 @@ static BOOL isHidden =NO;
         }
     if ([[self.currentUrl absoluteString] isEqualToString:@"http://m.meilianbao.net/home/about"]) {
         [self showVer];
+    }
+
+    if ([[self.currentUrl absoluteString] rangeOfString:@"/Video/Detail"].length !=0 ||[[self.currentUrl absoluteString] rangeOfString:@"/Video/DailyLessonDetail"].length !=0) {
+        app.isFull =YES;
     }
     
 
@@ -1063,21 +1068,5 @@ static BOOL isHidden =NO;
     [_webView loadRequest:reuqest];
 }
 
-//#pragma mark --横屏设置
-//- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
-//{
-//    return toInterfaceOrientation != UIDeviceOrientationPortraitUpsideDown;
-//}
-//
-//- (BOOL)shouldAutorotate
-//{
-//
-//    return NO;
-//}
-//
-//- (NSUInteger)supportedInterfaceOrientations
-//{
-//    return UIInterfaceOrientationMaskAllButUpsideDown;
-//}
 
 @end

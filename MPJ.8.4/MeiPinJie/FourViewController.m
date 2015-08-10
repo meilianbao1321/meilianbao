@@ -209,6 +209,13 @@
             return NO;
         }
 
+        if ( [urlStr rangeOfString:@"/Raw/GetPhoneNo/"].length != 0) {
+            NSString * tmpStr =[NSString stringWithFormat:@"$.Raw.CallBack(6,'%@')",app.currentAccountNumber];
+            NSLog(@"tmpStr = %@",tmpStr);
+            [_webView stringByEvaluatingJavaScriptFromString:tmpStr];
+            return NO;
+        }
+
         if([urlStr rangeOfString:@"/m.meilianbao.net"].length !=0&&[viewUrlStr isEqualToString:@"http://user.m.meilianbao.net/Login/Register"]){
             app.isReload =YES;
             app.tabbar.g_selectedTag = 4;
